@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:open_heavens/Screens/navigation.dart';
 
 import 'Screens/home.dart';
 
@@ -26,7 +27,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: const HomePage(),
+      home: const Navigation(),
     );
   }
 }

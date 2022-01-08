@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 // Neutral
 Color black = const Color(0xFF040013);
 Color white = const Color(0xFFF8F8F8);
+Color grey = const Color(0xFFE8E8E8);
 
 // Brand
 Color red = const Color(0xFFE1524C);
@@ -76,14 +77,16 @@ class Font {
             fontSize: text(56, context),    fontWeight: FontWeight.w500,    letterSpacing: 0.1  );
     }
 
-  static TextStyle bodyText1(BuildContext context){
+  static TextStyle bodyText1(BuildContext context, {Color? color}){
     return TextStyle(
-            fontSize: text(48, context),    fontWeight: FontWeight.w400,    letterSpacing: 0.5  );
+      color: color,
+      fontSize: text(48, context),    fontWeight: FontWeight.w400,    letterSpacing: 0.5  );
     }
 
-  static TextStyle bodyText2(BuildContext context){
+  static TextStyle bodyText2(BuildContext context, {Color? color}){
     return TextStyle(
-            fontSize: text(56, context),    fontWeight: FontWeight.w400,    letterSpacing: 0.25  );
+      color: color,
+      fontSize: text(56, context),    fontWeight: FontWeight.w400,    letterSpacing: 0.25  );
     }
 
   static TextStyle button(BuildContext context){
