@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:open_heavens/Screens/Home/Home.dart';
 import 'package:open_heavens/util/constants.dart';
 
 class Navigation extends StatefulWidget {
@@ -13,7 +14,7 @@ class _NavigationState extends State<Navigation> {
   var _pageIndex = 0;
 
   List<Widget> pages = [
-    Container(),
+    const Home(),
     Container(),
     Container()
   ];
