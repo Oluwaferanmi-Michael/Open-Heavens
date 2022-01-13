@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:open_heavens/Screens/Bible/bible.dart';
 import 'package:open_heavens/Screens/Home/Home.dart';
 import 'package:open_heavens/util/constants.dart';
 
@@ -15,7 +16,7 @@ class _NavigationState extends State<Navigation> {
 
   List<Widget> pages = [
     const Home(),
-    Container(),
+    const Bible(),
     Container()
   ];
 
@@ -31,7 +32,7 @@ class _NavigationState extends State<Navigation> {
     return Scaffold(
       bottomNavigationBar: BottomAppBar(
         elevation: 0,
-        color: Colors.transparent,
+        color: white,
         child: BottomNavigationBar(
           backgroundColor: Colors.transparent,
           currentIndex: _pageIndex,

@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 Color black = const Color(0xFF040013);
 Color white = const Color(0xFFF8F8F8);
 Color grey = const Color(0xFFE8E8E8);
-
+Color transparent = Colors.transparent;
 // Brand
 Color red = const Color(0xFFE1524C);
 Color blue = const Color(0xFF28166F);

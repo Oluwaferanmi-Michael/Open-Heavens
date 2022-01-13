@@ -87,18 +87,16 @@ class _HomeState extends State<Home> {
                   child: Stack(
                     alignment: Alignment.center,
                     children: [
-                      Positioned(
-                        // right: -24,
-                        child: Opacity(
-                          opacity: .4,
-                          child: Text('365',
+                      
+                        Positioned(
+                          // right: 12,
+                          child: Text('365',       
                             style: TextStyle(
                               fontFamily: 'Montserrat',
                               fontWeight:FontWeight.w900,
                               color: red,
                               fontSize: text(4, context)
                             ),),
-                        )
                         ),
                       Positioned(
                         left: 0,
@@ -113,6 +111,10 @@ class _HomeState extends State<Home> {
                     ],
                   ),
                   decoration: BoxDecoration(
+                    border: Border.all(
+                      width: 1,
+                      color: black
+                    ),
                     borderRadius: BorderRadius.circular(16)
                   ),),
               )
