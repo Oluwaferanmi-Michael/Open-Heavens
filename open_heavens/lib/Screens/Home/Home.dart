@@ -1,6 +1,7 @@
 
 
 import 'package:flutter/material.dart';
+import 'package:open_heavens/Screens/Devotional/devotionalScreen.dart';
 import 'package:open_heavens/util/Widgets/appBar.dart';
 import 'package:open_heavens/util/constants.dart';
 
@@ -30,18 +31,21 @@ class _HomeState extends State<Home> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
 
-              SizedBox(
-                width: width(1, context),
-                height: 120,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text('TODAY\'S READ', style: bodyText1(context),),
-                    Text('4th January', style: headline6(context),),
-                    Text('THE BEGINNING OF MONTHS', style: headline6(context)),
-                    Text('Ad aliquip Lorem ea est eiusmod est deserunt. Veniam sunt commodo cupidatat in culpa do esse aliquip ex amet in proident. Dolor veniam nisi minim tempor consequat irure magna anim exercitation ea. Excepteur id cupidatat exercitation quis ut amet anim fugiat excepteur. Fugiat non exercitation tempor ea ea. Excepteur dolor cillum cupidatat cillum adipisicing consectetur officia qui. Duis laborum pariatur aliquip sunt aliqua ad culpa nostrud aliqua exercitation dolor qui.', overflow: TextOverflow.ellipsis, maxLines: 2, style: subtitle2(context),
-                    )
-                  ],
+              InkWell(
+                onTap: () => Navigator.pushNamed(context, '/devotional'),
+                child: SizedBox(
+                  width: width(1, context),
+                  height: 120,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text('TODAY\'S READ', style: bodyText1(context),),
+                      Text('4th January', style: headline6(context),),
+                      Text('THE BEGINNING OF MONTHS', style: headline6(context)),
+                      Text('Ad aliquip Lorem ea est eiusmod est deserunt. Veniam sunt commodo cupidatat in culpa do esse aliquip ex amet in proident. Dolor veniam nisi minim tempor consequat irure magna anim exercitation ea. Excepteur id cupidatat exercitation quis ut amet anim fugiat excepteur. Fugiat non exercitation tempor ea ea. Excepteur dolor cillum cupidatat cillum adipisicing consectetur officia qui. Duis laborum pariatur aliquip sunt aliqua ad culpa nostrud aliqua exercitation dolor qui.', overflow: TextOverflow.ellipsis, maxLines: 2, style: subtitle2(context),
+                      )
+                    ],
+                  ),
                 ),
               ),
 

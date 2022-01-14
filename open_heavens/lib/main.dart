@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:open_heavens/Screens/Devotional/devotionalScreen.dart';
 import 'package:open_heavens/Screens/navigation.dart';
 import 'package:open_heavens/util/constants.dart';
 
@@ -78,6 +79,9 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
+      routes: {
+        '/devotional' : (context) => const Devotional(),
+      },
       home: const Navigation(),
     );
   }
