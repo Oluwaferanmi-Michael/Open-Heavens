@@ -15,6 +15,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
+    debugShowCheckedModeBanner: false,
       theme: ThemeData(
 
         textTheme: const TextTheme(
@@ -34,13 +35,13 @@ class MyApp extends StatelessWidget {
           headline5:
               TextStyle(
               fontFamily: 'Montserrat',
-              fontSize: 24, fontWeight: FontWeight.w400),
+              fontSize: 24, fontWeight: FontWeight.bold),
           headline6: TextStyle(
               fontFamily: 'Montserrat',
               fontSize: 20, fontWeight: FontWeight.bold, letterSpacing: 0.15),
           subtitle1: TextStyle(
               fontFamily: 'Montserrat',
-              fontSize: 16, fontWeight: FontWeight.w400, letterSpacing: 0.15),
+              fontSize: 16, fontWeight: FontWeight.bold, letterSpacing: 0.15),
           subtitle2: TextStyle(
               fontFamily: 'Montserrat',
               fontSize: 14, fontWeight: FontWeight.w500, letterSpacing: 0.1),

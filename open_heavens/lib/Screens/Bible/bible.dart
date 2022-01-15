@@ -17,7 +17,7 @@ class _BibleState extends State<Bible> {
       appBar: AppBar(
         backgroundColor: transparent,
         elevation: 0,
-        leading: IconButton(icon: const Icon(Icons.chevron_left), onPressed: Navigator.of(context).pop,),
+        leading: IconButton(icon: const Icon(Icons.menu), onPressed: Navigator.of(context).pop,),
         title: Text('Bible', style: headline6(context),),
       ),
 
