@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 // Colors
 // Neutral
@@ -15,69 +16,62 @@ Color gold = const Color(0xFFEFCD48);
 // Sizes
 
 double text(double n, BuildContext context) {
-  return MediaQuery.of(context).size.width / n;
+  return n.sp;
 }
 
 double height(double n, BuildContext context) {
   return MediaQuery.of(context).size.height / n;
 }
 
-double width(double n, BuildContext context) {
+double width(double n, BuildContext context )  {
   return MediaQuery.of(context).size.width / n;
 }
 
 
 
 
-TextStyle? headline1(BuildContext context) => Theme.of(context).textTheme.headline1;
+TextStyle? headline1(BuildContext context, {FontWeight? fontWeight}) => Font.headline1(context, fontWeight: fontWeight);
 
-TextStyle? headline2(BuildContext context) =>
-    Theme.of(context).textTheme.headline2;
+TextStyle? headline2(BuildContext context) => Font.headline2(context);
 
-TextStyle? headline3(BuildContext context) =>
-  Theme.of(context).textTheme.headline3;
+TextStyle? headline3(BuildContext context) => Font.headline3(context);
 
-    TextStyle? headline4(BuildContext context) =>
-    Theme.of(context).textTheme.headline4;
+TextStyle? headline4(BuildContext context) => Font.headline4(context);
 
-    TextStyle? headline5(BuildContext context) => Theme.of(context).textTheme.headline5;
+TextStyle? headline5(BuildContext context) => Font.headline5(context);
 
-    TextStyle? headline6(BuildContext context) => Theme.of(context).textTheme.headline6;
-    TextStyle? bodyText1(BuildContext context) => Theme.of(context).textTheme.bodyText1;
+TextStyle? headline6(BuildContext context) => Font.headline6(context);
 
-    TextStyle? bodyText2(BuildContext context) => Theme.of(context).textTheme.bodyText2;
+TextStyle? bodyText1(BuildContext context, {Color? color}) => Font.bodyText1(context, color: color);
 
-    TextStyle? button(BuildContext context) =>
-    Theme.of(context).textTheme.button;
+TextStyle? bodyText2(BuildContext context) => Font.bodyText2(context);
 
-    TextStyle? overline(BuildContext context) =>
-    Theme.of(context).textTheme.overline;
+TextStyle? button(BuildContext context) => Font.button(context);
 
-    TextStyle? caption(BuildContext context) =>
-    Theme.of(context).textTheme.caption;
+TextStyle? overline(BuildContext context) => Font.overline(context);
 
-    TextStyle? subtitle1(BuildContext context) =>
-    Theme.of(context).textTheme.subtitle1;
+TextStyle? caption(BuildContext context) => Font.caption(context);
 
-    TextStyle? subtitle2(BuildContext context) =>
-    Theme.of(context).textTheme.subtitle2;
+TextStyle? subtitle1(BuildContext context) => Font.subtitle1(context);
+
+TextStyle? subtitle2(BuildContext context) => Font.subtitle2(context);
 
 // FontStyles
 class Font {
 
-
-  static TextStyle headline1(BuildContext context){
+  static TextStyle headline1(BuildContext context, {FontWeight? fontWeight, Color? color}){
     return TextStyle(
+      color: color,
       fontFamily: 'Montserrat',
-      fontSize: text(8, context),
-      fontWeight: FontWeight.w300,
+      fontSize: text(97, context),
+      fontWeight: fontWeight,
       letterSpacing: -1.5);
     }
 
   static TextStyle headline2(BuildContext context){
     return TextStyle(
       fontFamily: 'Montserrat',
-      fontSize: text(12, context),
+      fontSize: text(61, context),
       fontWeight: FontWeight.w300,
       letterSpacing: -0.5  );
     }
@@ -85,14 +79,14 @@ class Font {
   static TextStyle headline3(BuildContext context){
     return TextStyle(
       fontFamily: 'Montserrat',
-      fontSize: text(16, context),
+      fontSize: text(48, context),
       fontWeight: FontWeight.w400  );
     }
 
   static TextStyle headline4(BuildContext context){
     return TextStyle(
       fontFamily: 'Montserrat',
-        fontSize: text(24, context),
+        fontSize: text(34, context),
         fontWeight: FontWeight.w400,
         letterSpacing: 0.25  );
     }
@@ -100,14 +94,14 @@ class Font {
   static TextStyle headline5(BuildContext context){
     return TextStyle(
       fontFamily: 'Montserrat',
-        fontSize: text(32, context),
+        fontSize: text(24, context),
         fontWeight: FontWeight.w400  );
     }
 
   static TextStyle headline6(BuildContext context){
     return TextStyle(
       fontFamily: 'Montserrat',
-        fontSize: text(40, context),
+        fontSize: text(20, context),
         fontWeight: FontWeight.w500,
         letterSpacing: 0.15  );
     }
@@ -115,45 +109,45 @@ class Font {
   static TextStyle subtitle1(BuildContext context){
     return TextStyle(
       fontFamily: 'Montserrat',
-            fontSize: text(48, context),    fontWeight: FontWeight.w400,    letterSpacing: 0.15  );
+            fontSize: text(16, context),    fontWeight: FontWeight.w400,    letterSpacing: 0.15  );
     }
 
   static TextStyle subtitle2(BuildContext context){
     return TextStyle(
       fontFamily: 'Montserrat',
-            fontSize: text(56, context),    fontWeight: FontWeight.w500,    letterSpacing: 0.1  );
+            fontSize: text(14, context),    fontWeight: FontWeight.w500,    letterSpacing: 0.1  );
     }
 
   static TextStyle bodyText1(BuildContext context, {Color? color}){
     return TextStyle(
       fontFamily: 'Montserrat',
       color: color,
-      fontSize: text(48, context),    fontWeight: FontWeight.w400,    letterSpacing: 0.5  );
+      fontSize: text(16, context),    fontWeight: FontWeight.w400,    letterSpacing: 0.5  );
     }
 
   static TextStyle bodyText2(BuildContext context, {Color? color}){
     return TextStyle(
       fontFamily: 'Montserrat',
       color: color,
-      fontSize: text(56, context),    fontWeight: FontWeight.w400,    letterSpacing: 0.25  );
+      fontSize: text(14, context),    fontWeight: FontWeight.w400,    letterSpacing: 0.25  );
     }
 
   static TextStyle button(BuildContext context){
     return TextStyle(
       fontFamily: 'Montserrat',
-      fontSize: text(56, context),    fontWeight: FontWeight.w500,    letterSpacing: 0.15  );
+      fontSize: text(14, context),    fontWeight: FontWeight.w500,    letterSpacing: 0.15  );
     }
 
   static TextStyle caption(BuildContext context){
     return TextStyle(
       fontFamily: 'Montserrat',
-      fontSize: text(64, context),    fontWeight: FontWeight.w500,    letterSpacing: 1.25  );
+      fontSize: text(12, context),    fontWeight: FontWeight.w500,    letterSpacing: 1.25  );
     }
 
   static TextStyle overline(BuildContext context){
     return TextStyle(
       fontFamily: 'Montserrat',
-      fontSize: text(72, context),
+      fontSize: text(10, context),
       fontWeight: FontWeight.w400,    
       letterSpacing: 1.5  );
     }

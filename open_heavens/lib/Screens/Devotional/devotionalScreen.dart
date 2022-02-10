@@ -36,7 +36,7 @@ class _DevotionalState extends State<Devotional> {
                   style: TextStyle(
                     height: .75,
                     fontWeight: FontWeight.w900,
-                    fontSize: text(1, context)
+                    fontSize: width(1, context)
                   ),
                 ),
               ),
