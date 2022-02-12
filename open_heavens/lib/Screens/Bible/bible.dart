@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:open_heavens/util/Widgets/appBar.dart';
+import 'package:open_heavens/util/Widgets/drawer.dart';
 import 'package:open_heavens/util/constants.dart';
 
 class Bible extends StatefulWidget {

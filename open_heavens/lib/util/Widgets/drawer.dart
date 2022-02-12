@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:open_heavens/util/constants.dart';
 
 class CustomDrawer extends StatelessWidget {
@@ -28,7 +29,7 @@ class CustomDrawer extends StatelessWidget {
             const SizedBox(height: 32,),
 
             ListTile(
-              onTap: () {},
+              onTap: () => Navigator.pushNamed(context, '/topicalReadings'),
               title: Text('Topical Readings', style: bodyText2(context),),),
 
             // const SizedBox(
@@ -37,6 +38,7 @@ class CustomDrawer extends StatelessWidget {
 
             ListTile(title: Text('Topics by Month', style: bodyText2(context),),),
 
+            SizedBox(height: 390.h,),
 
             ListTile(
               title: Text(

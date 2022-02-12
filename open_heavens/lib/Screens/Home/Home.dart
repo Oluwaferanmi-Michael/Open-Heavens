@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:open_heavens/Screens/Devotional/devotionalScreen.dart';
-import 'package:open_heavens/util/Widgets/appBar.dart';
+import 'package:open_heavens/util/Widgets/drawer.dart';
 import 'package:open_heavens/util/constants.dart';
 
 class Home extends StatefulWidget {
