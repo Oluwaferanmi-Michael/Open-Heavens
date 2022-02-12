@@ -36,7 +36,9 @@ class CustomDrawer extends StatelessWidget {
             //   height: 32,
             // ),
 
-            ListTile(title: Text('Topics by Month', style: bodyText2(context),),),
+            ListTile(
+              onTap: () => Navigator.pushNamed(context, '/topicsByMonth'),
+              title: Text('Topics by Month', style: bodyText2(context),),),
 
             SizedBox(height: 390.h,),
 
@@ -50,6 +52,7 @@ class CustomDrawer extends StatelessWidget {
             // const SizedBox(height: 32,),
 
             ListTile(
+              onTap: () => Navigator.pushNamed(context, '/distributors'),
               title: Text(
                 'Devotional Distributors',
                 style: bodyText2(context),

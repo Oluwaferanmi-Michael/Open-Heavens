@@ -32,12 +32,19 @@ class _TopicalReadingsState extends State<TopicalReadings> {
               expandedAlignment: Alignment.centerLeft,
               childrenPadding: EdgeInsets.only(bottom: 12),
               children: [
-                Text('data'),
-                Text('data'),
-                Text('data'),
-                Text('data'),
-                Text('data'),
-
+                ListTile(
+                  
+                  title: Text('data'),
+                ),
+                ListTile(
+                        title: Text('data'),
+                      ),
+                      ListTile(
+                        title: Text('data'),
+                      ),
+                      ListTile(
+                        title: Text('data'),
+                      ),
               ],
               title: Text('Concecration and the Holy Spirit', style: bodyText1(context),))
             )

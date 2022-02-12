@@ -26,11 +26,11 @@ String? bibleBooks;
 // Chapters
 
 final chapters = [
-    'Gen',
-    'Exo',
-    'Lev',
-    'Num',
-    'Deau',
+    '1',
+    '2',
+    '3',
+    '4',
+    '5',
   ];
 
   DropdownMenuItem<String> chapterList(String item) =>
@@ -66,14 +66,14 @@ final chapters = [
 
       body: SafeArea(
         child: Container(
-          padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
+          padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
           child: Column(
             children: [
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 12),
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     Container(
                       child: DropdownButtonHideUnderline(
@@ -88,7 +88,7 @@ final chapters = [
                             });
                           }),
                       ),
-                      padding: const EdgeInsets.all(8),
+                      padding: const EdgeInsets.all(4),
                       decoration: BoxDecoration(
                         border: Border.all(color: black, width: 1),
                         borderRadius: BorderRadius.circular(50)),),
@@ -103,11 +103,11 @@ final chapters = [
                           items: chapters.map(chapterList).toList(),
                           onChanged: (bibleChapter) {
                             setState(() {
-                              this.bibleChapter = bibleChapter;
+                              bibleChapter = bibleChapter;
                             });
                           }),
                       ),
-                      padding: EdgeInsets.all(8),
+                      padding: EdgeInsets.all(4),
                       decoration: BoxDecoration(
                           border: Border.all(color: black, width: 1),
                           borderRadius: BorderRadius.circular(50)
@@ -120,15 +120,16 @@ final chapters = [
                         child: DropdownButton<String>(
                           icon: const Icon(Icons.keyboard_arrow_down_rounded),
                           isDense: true,
+
                             value: bibleVerses,
                             items: chapters.map(verseList).toList(),
-                            onChanged: (bibleChapter) {
+                            onChanged: (bibleVerses) {
                               setState(() {
                                 bibleVerses = bibleVerses;
                               });
                             }),
                       ),
-                      padding: EdgeInsets.all(8),
+                      padding: EdgeInsets.all(4),
                       decoration: BoxDecoration(
                           border: Border.all(color: black, width: 1),
                           borderRadius: BorderRadius.circular(50)),
