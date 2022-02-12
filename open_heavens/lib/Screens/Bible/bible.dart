@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:open_heavens/util/Widgets/appBar.dart';
 import 'package:open_heavens/util/constants.dart';
 
 class Bible extends StatefulWidget {
@@ -10,15 +11,57 @@ class Bible extends StatefulWidget {
 
 class _BibleState extends State<Bible> {
 
-  String value = 'just';
+  
+// Books
+
+final books = ['Gen', 'Exo', 'Lev', 'Num', 'Deau',];
+
+DropdownMenuItem<String> bookList(String item) => DropdownMenuItem(
+  child: Text(item),
+  value: item);
+    
+String? bibleBooks;
+
+
+// Chapters
+
+final chapters = [
+    'Gen',
+    'Exo',
+    'Lev',
+    'Num',
+    'Deau',
+  ];
+
+  DropdownMenuItem<String> chapterList(String item) =>
+      DropdownMenuItem(child: Text(item), value: item);
+
+  String? bibleChapter;
+
+
+// Verses
+  final verses = [
+    '1',
+    '2',
+    '3',
+    '4',
+    '5',
+  ];
+
+  DropdownMenuItem<String> verseList(String item) =>
+      DropdownMenuItem(child: Text(item), value: item);
+
+  String? bibleVerses;
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: const CustomDrawer(),
       appBar: AppBar(
         backgroundColor: transparent,
         elevation: 0,
-        leading: IconButton(icon: const Icon(Icons.menu), onPressed: Navigator.of(context).pop,),
-        title: Text('Bible', style: headline6(context),),
+        title: Text('Bible', style: headline6(context, color: blue),),
       ),
 
       body: SafeArea(
@@ -33,17 +76,62 @@ class _BibleState extends State<Bible> {
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     Container(
-                      padding: EdgeInsets.all(8),
-                      decoration: BoxDecoration(border: Border.all(color: black, width: 1)),),
+                      child: DropdownButtonHideUnderline(
+                        child: DropdownButton<String>(
+                          icon: const Icon(Icons.keyboard_arrow_down_rounded),
+                          isDense: true,
+                          value: bibleBooks,
+                          items: books.map(bookList).toList(),
+                          onChanged: (bibleBooks) {
+                            setState(() {
+                              bibleBooks = bibleBooks;
+                            });
+                          }),
+                      ),
+                      padding: const EdgeInsets.all(8),
+                      decoration: BoxDecoration(
+                        border: Border.all(color: black, width: 1),
+                        borderRadius: BorderRadius.circular(50)),),
+
+
                     Container(
+                      child: DropdownButtonHideUnderline(
+                        child: DropdownButton<String>(
+                          icon: const Icon(Icons.keyboard_arrow_down_rounded),
+                          isDense: true,
+                          value: bibleChapter,
+                          items: chapters.map(chapterList).toList(),
+                          onChanged: (bibleChapter) {
+                            setState(() {
+                              this.bibleChapter = bibleChapter;
+                            });
+                          }),
+                      ),
                       padding: EdgeInsets.all(8),
                       decoration: BoxDecoration(
-                          border: Border.all(color: black, width: 1)),
+                          border: Border.all(color: black, width: 1),
+                          borderRadius: BorderRadius.circular(50)
+                          ),
                     ),
+
+
                     Container(
+                      child: DropdownButtonHideUnderline(
+                        child: DropdownButton<String>(
+                          icon: const Icon(Icons.keyboard_arrow_down_rounded),
+                          isDense: true,
+                            value: bibleVerses,
+                            items: chapters.map(verseList).toList(),
+                            onChanged: (bibleChapter) {
+                              setState(() {
+                                bibleVerses = bibleVerses;
+                              });
+                            }),
+                      ),
                       padding: EdgeInsets.all(8),
                       decoration: BoxDecoration(
-                          border: Border.all(color: black, width: 1)),
+                          border: Border.all(color: black, width: 1),
+                          borderRadius: BorderRadius.circular(50)),
                     ),
                   ],
                 ),
