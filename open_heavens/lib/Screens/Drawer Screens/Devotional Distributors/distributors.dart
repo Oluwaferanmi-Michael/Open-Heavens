@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:open_heavens/util/Database/distributor_database.dart';
 
 import '../../../util/constants.dart';
 
@@ -29,7 +28,7 @@ class _DistributorsState extends State<Distributors> {
       body: Container(
         padding: const EdgeInsets.symmetric(horizontal:24),
         child: ListView.builder(
-          itemCount: devotionalDistributors.length,
+          itemCount: 7,
           itemBuilder: (context, index) => const ListTile(
             title: Text('devotionalDistributors'),
             subtitle: Text('locale, phonenumber'),)
