@@ -31,9 +31,8 @@ class _DistributorsState extends State<Distributors> {
         child: ListView.builder(
           itemCount: devotionalDistributors.length,
           itemBuilder: (context, index) => const ListTile(
-            title: Text('data'),
-            subtitle: Text('locale, phonenumber'),
-          )
+            title: Text('devotionalDistributors'),
+            subtitle: Text('locale, phonenumber'),)
           )
       ),
     );

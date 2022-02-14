@@ -1,41 +1,47 @@
 
 
-Map<String, List<String>> devotionalDistributors = {
-  'Mrs. Adedeji Adeayo' : ['Rccg Camp', '08055919414'],
+List<Map<String, dynamic>> devotionalDistributors = [
+  {'name' : 'Mrs. Adedeji Adeayo',
+   'location': 'Rccg Camp', 
+   'phone number' : '08055919414'},
 
-  'The Lanmb International': ['Ilorin, Kwara State', '08033730553'],
+  { 'name' : 'The Lamb International',
+  'location' : 'Ilorin, Kwara State',
+  'phone number' : '08033730553'},
 
-  'Spring Waters BookShop': ['Ogudu, Lagos State', '08023674014'],
+  {'name' : 'Spring Waters BookShop', 'location' : 'Ogudu, Lagos State',
+  'phone number': '08023674014'},
 
-  'Mrs. Oderinde': ['Festac, Lagos State', '00803373382'],
+  {'name' : 'Mrs. Oderinde', 'location' : 'Festac, Lagos State', 'phone number' :'00803373382'},
 
-  'Sis. Blessing': ['RCCG Camp', '08055174550'],
+  {'name' : 'Sis. Blessing', 'location': 'RCCG Camp', 'phone number' : '08055174550'},
 
-  'CRM Bookshop 2': ['RCCG Camp', '08060622424'],
+  {'name' : 'CRM Bookshop 2', 'location' : 'RCCG Camp', 'phone number' : '08060622424'},
 
-  'Mrs. Omotosho': ['Ekiti State', '08066359779'],
+  {'name' : 'Mrs. Omotosho', 'location' : 'Ekiti State', 'phone number' : '08066359779'},
 
-  'Mrs. Wunmi Emmanuel': ['Lagos State', '08104929352'],
+  {'name' : 'Mrs. Wunmi Emmanuel', 'location' : 'Lagos State', 'phone number' : '08104929352'},
 
-  'Pst. Timothy Ayanlola': ['Nasarawa State', '08036798902'],
+  {'name' : 'Pst. Timothy Ayanlola', 'location' : 'Nasarawa State', 'phone number' : '08036798902'},
 
-  'Mrs. Taiwo Adejoke': ['Lagos State', '08070794055'],
+  { 'name' : 'Mrs. Taiwo Adejoke', 'location' : 'Lagos State', 'phone number' : '08070794055'},
 
-  'Mrs. Egbeyemi': ['Ogun State', '08033476363'],
+  { 'name' : 'Mrs. Egbeyemi', 'location' : 'Ogun State',  'phone number' : '08033476363'},
 
-  'Mrs. Olutunbi': ['Ondo State', '08029586634'],
+  { 'name' : 'Mrs. Olutunbi', 'location' : 'Ondo State', 'phone number' :'08029586634'},
 
-  'Oluwaponle Adeleke': ['Kaduna State', '07034905940'],
+  { 'name' : 'Oluwaponle Adeleke', 'location' : 'Kaduna State',  'phone number' : '07034905940'},
 
-  'Mrs. Adeyeye': ['Anambra State', '07068217183'],
+  { 'name' : 'Mrs. Adeyeye', 'location' : 'Anambra State',  'phone number' : '07068217183'},
 
-  'Mrs. Dayo Adesanya': ['RCCG Camp', '08037027020'],
+  { 'name' : 'Mrs. Dayo Adesanya', 'location' : 'RCCG Camp',  'phone number' :'08037027020'},
 
-  'Mr. Toba Momodu': ['Benue State', '08134381490'],
+  { 'name' : 'Mr. Toba Momodu', 'location' : 'Benue State', 'phone number' :'08134381490'},
 
-  'Mrs. Ayotunde Olumide': ['Ogun State', '07033874675'],
+  { 'name' : 'Mrs. Ayotunde Olumide', 'location' : 'Ogun State', 'phone number' :'07033874675'},
 
-  'Mrs. Nnenaya': ['Abia State', '08033207485'],
+  { 'name' : 'Mrs. Nnenaya',
+    'location': 'Abia State', 'phone number' :'08033207485'},
 
   // 'Mrs. Wunmi Emmanuel': ['Lagos State', '08104929352'],
-};
+];
