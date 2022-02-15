@@ -1,4 +1,6 @@
-{
+
+
+Map<String, dynamic>? distributors = {
   "distributors" : [
     {
       "name" : "Mrs. Adedeji Adeayo",
@@ -13,7 +15,7 @@
     },
 
     {
-      "name" : "Spring Waters BookShop",
+      "name" : "Spring Waters Bookshop",
       "location" : "Ogudu, Lagos State",
       "phone number": "08023674014"
     },
@@ -107,4 +109,4 @@
       "phone number" :"08033207485"
     }
   ]
-}
+};
