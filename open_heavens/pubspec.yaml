@@ -36,7 +36,7 @@ dependencies:
   cupertino_icons: ^1.0.2
 
   # state management
-  riverpod: ^1.0.3
+  flutter_riverpod: ^1.0.3
 
   # UI functionality
   flutter_screenutil: ^5.1.1
@@ -44,12 +44,14 @@ dependencies:
   # Persist data
   hive: ^2.0.5
 
+
   # url and phone call functions
   url_launcher: ^6.0.20
   flutter_phone_direct_caller: ^2.1.0
 
   # http requests
   dio: ^4.0.4
+  
 
 dev_dependencies:
   flutter_test:
@@ -117,6 +119,35 @@ flutter:
           weight: 600
 
         - asset: assets/fonts/Montserrat/Montserrat-Thin.ttf
+          weight: 100
+
+    - family: Poppins
+      fonts:
+        - asset: assets/fonts/Poppins/Poppins-Black.ttf
+          weight: 900
+          
+        - asset: assets/fonts/Poppins/Poppins-Bold.ttf
+          weight: 700
+
+        - asset: assets/fonts/Poppins/Poppins-ExtraBold.ttf
+          weight: 800
+
+        - asset: assets/fonts/Poppins/Poppins-ExtraLight.ttf
+          weight: 200
+
+        - asset: assets/fonts/Poppins/Poppins-Light.ttf
+          weight: 300 
+
+        - asset: assets/fonts/Poppins/Poppins-Medium.ttf
+          weight: 500
+
+        - asset: assets/fonts/Poppins/Poppins-Regular.ttf
+          weight: 400
+
+        - asset: assets/fonts/Poppins/Poppins-SemiBold.ttf
+          weight: 600
+
+        - asset: assets/fonts/Poppins/Poppins-Thin.ttf
           weight: 100
 
   

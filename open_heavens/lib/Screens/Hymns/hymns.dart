@@ -19,7 +19,7 @@ class _HymnsState extends State<Hymns> {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: transparent,
-        title: Text('Hymns', style: headline6(context, fontWeight: FontWeight.bold, color: black),),
+        // title: Text('Hymns', style: headline6(context, fontWeight: FontWeight.bold, color: black),),
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -34,15 +34,17 @@ class _HymnsState extends State<Hymns> {
 
               Container(
                 padding: const EdgeInsets.symmetric(horizontal: 12),
+                
                 decoration: BoxDecoration(
                   border: Border.all(color: blue, width: 1),
-                  borderRadius: BorderRadius.circular(10.w)
+                  borderRadius: BorderRadius.circular(8)
                 ),
                 child: TextFormField(
                   cursorColor: blue,
                   decoration: InputDecoration(
                     suffixIcon: Icon(Icons.search_outlined, color: blue,),
-                    // isCollapsed: true,s
+                    // isDense: true,
+                    // isCollapsed: true,
                     hintText: 'Search',
                     border: InputBorder.none),
                 ),

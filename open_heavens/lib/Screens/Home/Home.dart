@@ -1,8 +1,5 @@
-
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:open_heavens/Screens/Devotional/devotionalScreen.dart';
 import 'package:open_heavens/util/Widgets/drawer.dart';
 import 'package:open_heavens/util/constants.dart';
 
@@ -17,6 +14,7 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawerEnableOpenDragGesture: true,
       primary: true,
       drawer: const CustomDrawer(),
       appBar: AppBar(
@@ -28,101 +26,126 @@ class _HomeState extends State<Home> {
         child: Padding(
           padding: const EdgeInsets.all(24.0),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            // mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
 
-              InkWell(
-                onTap: () => Navigator.pushNamed(context, '/devotional'),
-                child: SizedBox(
-                  width: width(1, context),
-                  height: 120,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text('TODAY\'S READ', style: bodyText1(context, fontWeight: FontWeight.bold, color: red),),
-                      SizedBox(
-                        height: 12.sp,
-                      ),
-                      Text('4th January', style: headline6(context, fontWeight: FontWeight.bold),),
-                      Text('THE BEGINNING OF MONTHS', style: headline6(context, fontWeight: FontWeight.bold)),
 
-                      SizedBox(
-                        height: 8.sp,
-                      ),
-
-                      Text('Ad aliquip Lorem ea est eiusmod est deserunt. Veniam sunt commodo cupidatat in culpa do esse aliquip ex amet in proident. Dolor veniam nisi minim tempor consequat irure magna anim exercitation ea. Excepteur id cupidatat exercitation quis ut amet anim fugiat excepteur. Fugiat non exercitation tempor ea ea. Excepteur dolor cillum cupidatat cillum adipisicing consectetur officia qui. Duis laborum pariatur aliquip sunt aliqua ad culpa nostrud aliqua exercitation dolor qui.', overflow: TextOverflow.ellipsis, maxLines: 2, style: subtitle2(context),
-                      )
-                    ],
-                  ),
-                ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text('Good Day, Sir',
+                      style: headerCaptions(context)),
+                  Text('February 16th',
+                  style: headerCaptions(context))
+                ],
               ),
 
-              const SizedBox(height: 42,),
+              SizedBox(height: 12.h,),
+
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text('Daily Devotional',
+                      style: secondaryHeader(context)),
+                  
+                  Text('2022', style: TextStyle(color: black, fontWeight: FontWeight.w600, fontSize: 16.sp))],
+              ),
 
               SizedBox(
-                width: width(1, context),
-                height: 120,
-                child: InkWell(
+                height: 24.h,
+              ),
+
+              InkWell(
+                onTap: () => Navigator.pushNamed(context, '/devotional'),
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: grey,
+                    borderRadius: BorderRadius.circular(8)
+                  ),
+                  height: 178.h,
+                  width: width(1, context),
+                  padding: const EdgeInsets.all(12),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.end,
                     children: [
-                      Text(
-                        'Teen\'s Open Heavens',
-                        style: bodyText1(context, fontWeight: FontWeight.w600, color: blue),
-                      ),
+                      
+                      Text('The Beginning of Months'.toUpperCase(),
+                          style: primaryHeader(context, fontWeight: FontWeight.bold)),
+                     
 
-                      SizedBox(height: 12.sp,),
-                      
-                      Text(
-                        '4th January',
-                        style: headline6(context, fontWeight: FontWeight.bold),
-                      ),
-                      Text('THE BEGINNING OF MONTHS', style: headline6(context, fontWeight: FontWeight.bold)),
-                      
-                       SizedBox(
+                      SizedBox(
                         height: 8.sp,
                       ),
-                      Text(
-                      'Ad aliquip Lorem ea est eiusmod est deserunt. Veniam sunt commodo cupidatat in culpa do esse aliquip ex amet in proident. Dolor veniam nisi minim tempor consequat irure magna anim exercitation ea. Excepteur id cupidatat exercitation quis ut amet anim fugiat excepteur. Fugiat non exercitation tempor ea ea. Excepteur dolor cillum cupidatat cillum adipisicing consectetur officia qui. Duis laborum pariatur aliquip sunt aliqua ad culpa nostrud aliqua exercitation dolor qui.',
-                      overflow: TextOverflow.ellipsis,
-                      maxLines: 2,
-                      style: subtitle2(context),
+
+                      Text('Ad aliquip Lorem ea est eiusmod est deserunt. Veniam sunt commodo cupidatat in culpa do esse aliquip ex amet in proident. Dolor veniam nisi minim tempor consequat irure magna anim exercitation ea. Excepteur id cupidatat exercitation quis ut amet anim fugiat excepteur. Fugiat non exercitation tempor ea ea. Excepteur dolor cillum cupidatat cillum adipisicing consectetur officia qui. Duis laborum pariatur aliquip sunt aliqua ad culpa nostrud aliqua exercitation dolor qui.', overflow: TextOverflow.ellipsis, maxLines: 2,
+                      style: secondaryCaptions(context)
                       )
                     ],
                   ),
                 ),
               ),
 
-              const SizedBox(
-                height: 42,
+              SizedBox(height: 24.h,),
+
+              InkWell(
+                onTap: () => Navigator.pushNamed(context, '/devotional'),
+                child: Container(
+                  height: 178.h,
+                  color: grey,
+                  width: width(1, context),
+                  padding: EdgeInsets.all(12),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      Text(
+                        'THE BEGINNING OF MONTHS',
+                      ),
+                      SizedBox(
+                        height: 8.sp,
+                      ),
+                      Text(
+                        'Ad aliquip Lorem ea est eiusmod est deserunt. Veniam sunt commodo cupidatat in culpa do esse aliquip ex amet in proident. Dolor veniam nisi minim tempor consequat irure magna anim exercitation ea. Excepteur id cupidatat exercitation quis ut amet anim fugiat excepteur. Fugiat non exercitation tempor ea ea. Excepteur dolor cillum cupidatat cillum adipisicing consectetur officia qui. Duis laborum pariatur aliquip sunt aliqua ad culpa nostrud aliqua exercitation dolor qui.',
+                        overflow: TextOverflow.ellipsis,
+                        maxLines: 2,
+                      )
+                    ],
+                  ),
+                ),
+              ),
+
+              SizedBox(
+                height: 24.h,
               ),
 
               InkWell(
-                enableFeedback: false,
-                onTap: () {},
+                onTap: () => Navigator.pushNamed(context, '/devotional'),
                 child: Container(
-                  clipBehavior: Clip.antiAlias,
+                  height: 178.h,
+                  color: grey,
                   width: width(1, context),
-                  // margin: const EdgeInsets.only(bottom: 42),
-                  child: Padding(
-                    padding: const EdgeInsets.only(left: 24, top: 24, bottom: 24),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text('Bible in a year', style: headline6(context, fontWeight: FontWeight.bold),),
-                        Text('Guide to finishing the Bible', style: subtitle2(context),),
-                      ],
-                    ),
+                  padding: EdgeInsets.all(12),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      Text(
+                        'THE BEGINNING OF MONTHS',
+                      ),
+                      SizedBox(
+                        height: 8.sp,
+                      ),
+                      Text(
+                        'Ad aliquip Lorem ea est eiusmod est deserunt. Veniam sunt commodo cupidatat in culpa do esse aliquip ex amet in proident. Dolor veniam nisi minim tempor consequat irure magna anim exercitation ea. Excepteur id cupidatat exercitation quis ut amet anim fugiat excepteur. Fugiat non exercitation tempor ea ea. Excepteur dolor cillum cupidatat cillum adipisicing consectetur officia qui. Duis laborum pariatur aliquip sunt aliqua ad culpa nostrud aliqua exercitation dolor qui.',
+                        overflow: TextOverflow.ellipsis,
+                        maxLines: 2,
+                      )
+                    ],
                   ),
-                  decoration: BoxDecoration(
-                    border: Border.all(
-                      width: 1,
-                      color: black
-                    ),
-                    borderRadius: BorderRadius.circular(16)
-                  ),),
-              )
+                ),
+              ),
             ],
           ),
         ),

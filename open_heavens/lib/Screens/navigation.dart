@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:open_heavens/Screens/Bible/bible.dart';
-import 'package:open_heavens/Screens/Home/Home.dart';
+import 'package:open_heavens/Screens/Home/home.dart';
 import 'package:open_heavens/Screens/Hymns/hymns.dart';
 import 'package:open_heavens/util/constants.dart';
 
@@ -25,6 +25,8 @@ class _NavigationState extends State<Navigation> {
     setState(() {
     _pageIndex = index;
     });
+    
+
   }
 
 
@@ -32,9 +34,11 @@ class _NavigationState extends State<Navigation> {
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: BottomAppBar(
+
         elevation: 0,
         color: white,
         child: BottomNavigationBar(
+          
           backgroundColor: Colors.transparent,
           currentIndex: _pageIndex,
           elevation: 0,

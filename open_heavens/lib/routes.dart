@@ -8,7 +8,7 @@ import 'Screens/Devotional/devotionalScreen.dart';
 
 Map<String, WidgetBuilder> routes = {
    '/devotional' : (context) => const Devotional(),
-   '/topicalReadings' : (context) => const TopicalReadings(),
-   '/topicsByMonth' : (context) => const TopicsByMonth(),
-   '/distributors' : (context) => const Distributors()
+  //  '/topicalReadings' : (context) => const TopicalReadings(),
+  //  '/topicsByMonth' : (context) => const TopicsByMonth(),
+  //  '/distributors' : (context) => const Distributors()
    };

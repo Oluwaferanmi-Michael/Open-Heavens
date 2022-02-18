@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 // Colors
+
 // Neutral
 Color black = const Color(0xFF040013);
 Color white = const Color(0xFFF8F8F8);
@@ -13,8 +14,15 @@ Color blue = const Color(0xFF28166F);
 Color green = const Color(0xFF00923F);
 Color gold = const Color(0xFFEFCD48);
 
-// Sizes
+// Icons
 
+Icon back = const Icon(Icons.chevron_left_rounded);
+Icon menu = const Icon(Icons.menu);
+Icon dropDown = const Icon(Icons.keyboard_arrow_down_rounded);
+Icon search = const Icon(Icons.search_rounded);
+
+
+// Sizes
 double text(double n, BuildContext context) {
   return n.sp;
 }
@@ -28,27 +36,30 @@ double width(double n, BuildContext context )  {
 }
 
 
+// Font Styles
 
-
-TextStyle? headline1(BuildContext context,
+TextStyle? primaryHeader(BuildContext context,
         {Color? color, FontWeight? fontWeight}) => Font.headline1(context, color: color, fontWeight: fontWeight);
-
-TextStyle? headline2(BuildContext context,
+ 
+TextStyle? secondaryHeader(BuildContext context,
         {Color? color, FontWeight? fontWeight}) => Font.headline2(context, color: color, fontWeight: fontWeight);
 
-TextStyle? headline3(BuildContext context,
+TextStyle? bodyText(BuildContext context,
         {Color? color, FontWeight? fontWeight}) => Font.headline3(context, color: color, fontWeight: fontWeight);
 
-TextStyle? headline4(BuildContext context,
+TextStyle? fieldText(BuildContext context,
+        {Color? color, FontWeight? fontWeight}) => Font.bodyText1(context, color: color, fontWeight: fontWeight);
+
+TextStyle? headerCaptions(BuildContext context,
         {Color? color, FontWeight? fontWeight}) => Font.headline4(context, color: color, fontWeight: fontWeight);
 
-TextStyle? headline5(BuildContext context, {Color? color, FontWeight? fontWeight}) => Font.headline5(context);
+TextStyle? secondaryCaptions(BuildContext context, {Color? color, FontWeight? fontWeight}) => Font.headline5(context);
 
-TextStyle? headline6(BuildContext context,
+TextStyle? buttons(BuildContext context,
         {Color? color, FontWeight? fontWeight}) => Font.headline6(context, color: color, fontWeight: fontWeight);
 
-TextStyle? bodyText1(BuildContext context,
-        {Color? color, FontWeight? fontWeight}) => Font.bodyText1(context, color: color, fontWeight: fontWeight);
+
+// ```Ignore```/////////////////////////////////////////////////////////////////
 
 TextStyle? bodyText2(BuildContext context,
         {Color? color, FontWeight? fontWeight}) => Font.bodyText2(context, color: color, fontWeight: fontWeight);
@@ -67,51 +78,53 @@ TextStyle? subtitle1(BuildContext context,
 
 TextStyle? subtitle2(BuildContext context, {Color? color, FontWeight? fontWeight}) => Font.subtitle2(context, color: color, fontWeight: fontWeight);
 
+// ```Ignore```/////////////////////////////////////////////////////////////////
+
+
 // FontStyles
 class Font {
 
-  static TextStyle headline1(BuildContext context, {FontWeight? fontWeight, Color? color}){
+  static TextStyle headline1(BuildContext context, { Color? color, FontWeight? fontWeight}){
     return TextStyle(
       color: color,
       fontFamily: 'Montserrat',
-      fontSize: text(97, context),
+      fontSize:  16.sp,
       fontWeight: fontWeight,
-      letterSpacing: -1.5);
+      );
     }
 
   static TextStyle headline2(BuildContext context,
       {FontWeight? fontWeight, Color? color}){
-    return TextStyle(
+   return TextStyle(
+      color: color,
       fontFamily: 'Montserrat',
-      color: color, fontWeight: fontWeight,
-      fontSize: text(61, context),
-      letterSpacing: -0.5  );
+      fontSize: 16.sp,
+      fontWeight: FontWeight.w600,
+    );
     }
 
-  static TextStyle headline3(BuildContext context,
+  static TextStyle  headline3(BuildContext context,
       {FontWeight? fontWeight, Color? color}){
     return TextStyle(
-      fontFamily: 'Montserrat',
-      fontSize: text(48, context),
-      color: color,
-      fontWeight: fontWeight,
-    );
+      fontFamily: 'Poppins',
+      color: black,
+      fontWeight: FontWeight.w300,
+      fontSize: 16.sp);
     }
 
   static TextStyle headline4(BuildContext context,
       {FontWeight? fontWeight, Color? color}){
     return TextStyle(
       fontFamily: 'Montserrat',
-        fontSize: text(34, context),
-        color: color,
-        fontWeight: fontWeight,
-        letterSpacing: 0.25  );
+        color: black,
+        // fontWeight: FontWeight.bold,
+        fontSize: 12.sp);
     }
 
   static TextStyle headline5(BuildContext context, {FontWeight? fontWeight, Color? color}){
     return TextStyle(
-      fontFamily: 'Montserrat',
-        fontSize: text(24, context),
+      fontFamily: 'Poppins',
+        fontSize: 12.sp,
         color: color,
       fontWeight: fontWeight,
     );

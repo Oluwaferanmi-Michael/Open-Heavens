@@ -16,17 +16,17 @@ class CustomDrawer extends StatelessWidget {
         child: ListView(
           padding: EdgeInsets.zero,
           children: [
-            ListTile(
-              title: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text('TODAY\'S READ', style: headline6(context)),
-                  Text('4th january', style: headline6(context),)
-                ],
-              ),
-            ),
+            // ListTile(
+            //   title: Column(
+            //     crossAxisAlignment: CrossAxisAlignment.start,
+            //     children: [
+            //       Text('TODAY\'S READ', style: headline6(context)),
+            //       Text('4th january', style: headline6(context),)
+            //     ],
+            //   ),
+            // ),
 
-            const SizedBox(height: 32,),
+            // const SizedBox(height: 32,),
 
             ListTile(
               onTap: () => Navigator.pushNamed(context, '/topicalReadings'),
