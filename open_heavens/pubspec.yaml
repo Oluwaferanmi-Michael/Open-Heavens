@@ -48,9 +48,10 @@ dependencies:
   # url and phone call functions
   url_launcher: ^6.0.20
   flutter_phone_direct_caller: ^2.1.0
+  
 
   # http requests
-  dio: ^4.0.4
+  http: ^0.13.4
   
 
 dev_dependencies:
@@ -79,6 +80,7 @@ flutter:
   assets:
     - assets/images/
     - assets/fonts/
+    - assets/Database/hymns.json
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

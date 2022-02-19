@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:open_heavens/API/hymn_api_call.dart';
+import 'package:open_heavens/Screens/Hymns/hymn_page_components.dart';
 import 'package:open_heavens/util/Widgets/drawer.dart';
 import 'package:open_heavens/util/constants.dart';
 
@@ -34,7 +36,7 @@ class _HymnsState extends State<Hymns> {
 
               Container(
                 padding: const EdgeInsets.symmetric(horizontal: 12),
-                
+
                 decoration: BoxDecoration(
                   border: Border.all(color: blue, width: 1),
                   borderRadius: BorderRadius.circular(8)
@@ -54,11 +56,22 @@ class _HymnsState extends State<Hymns> {
       
               SizedBox(
                 height: height(1, context),
-                child: ListView.builder(
-                  itemCount: 25,
-                  itemBuilder: (context, index) => ListTile(
-                    title: Text('All to Jesus I surrender', style: bodyText2(context),
-                  ))),
+                child: FutureBuilder<Object>(
+                  future: HymnApi.getLocally(context),
+                  builder: (context, snapshot) {
+
+                    switch (snapshot.connectionState) {
+                      case ConnectionState.waiting:
+                        return loading(context);
+                      default:
+                        if (snapshot.hasError) {
+                          return errorMessage(context);
+                        } else {
+                          return hymnList(context);
+                        }
+                    }
+                  }
+                ),
               )
             ],
           ),
