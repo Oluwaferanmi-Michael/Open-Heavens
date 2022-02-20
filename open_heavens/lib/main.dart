@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:open_heavens/Screens/Onboarding/onboarding.dart';
 import 'package:open_heavens/Screens/navigation.dart';
 import 'package:open_heavens/routes.dart';
 import 'package:open_heavens/util/constants.dart';
@@ -47,7 +48,7 @@ class MyApp extends StatelessWidget {
         // primarySwatch: Colors.blue,
       ),
       routes: routes,
-      home: const Navigation(),
+      home: const Onboarding(),
     ));
   }
 }

@@ -47,7 +47,7 @@ class _NavigationState extends State<Navigation> {
           type: BottomNavigationBarType.fixed,
 
           selectedItemColor: blue,
-          selectedLabelStyle: subtitle2(context, color: blue, fontWeight: FontWeight.bold),
+          selectedLabelStyle: bodyText(context, color: blue, fontWeight: FontWeight.bold),
 
           unselectedLabelStyle: Font.bodyText2(context, color: grey),
           unselectedItemColor: grey,

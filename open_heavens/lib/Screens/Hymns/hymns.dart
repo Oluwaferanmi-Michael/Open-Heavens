@@ -5,6 +5,8 @@ import 'package:open_heavens/Screens/Hymns/hymn_page_components.dart';
 import 'package:open_heavens/util/Widgets/drawer.dart';
 import 'package:open_heavens/util/constants.dart';
 
+import '../../Models/hymn_model.dart';
+
 
 class Hymns extends StatefulWidget {
   const Hymns({ Key? key }) : super(key: key);
@@ -56,7 +58,7 @@ class _HymnsState extends State<Hymns> {
       
               SizedBox(
                 height: height(1, context),
-                child: FutureBuilder<Object>(
+                child: FutureBuilder<List<HymnModel>>(
                   future: HymnApi.getLocally(context),
                   builder: (context, snapshot) {
 

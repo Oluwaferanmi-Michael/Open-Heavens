@@ -73,10 +73,10 @@ TextStyle? overline(BuildContext context,
 TextStyle? caption(BuildContext context,
         {Color? color, FontWeight? fontWeight}) => Font.caption(context, color: color, fontWeight: fontWeight);
 
-TextStyle? subtitle1(BuildContext context,
-        {Color? color, FontWeight? fontWeight}) => Font.subtitle1(context, color: color, fontWeight: fontWeight);
+TextStyle? onboardingHeader(BuildContext context,
+        {Color? color, FontWeight? fontWeight}) => Font.subtitle1(context, color: color,);
 
-TextStyle? subtitle2(BuildContext context, {Color? color, FontWeight? fontWeight}) => Font.subtitle2(context, color: color, fontWeight: fontWeight);
+TextStyle? onboardingsubTitle(BuildContext context, {Color? color,}) => Font.subtitle2(context, color: color);
 
 // ```Ignore```/////////////////////////////////////////////////////////////////
 
@@ -133,24 +133,26 @@ class Font {
   static TextStyle headline6(BuildContext context, {FontWeight? fontWeight, Color? color}){
     return TextStyle(
       fontFamily: 'Montserrat',
-        fontSize: text(20, context),
-        color: color,
+        fontSize: 16.sp,
+        color: white,
       fontWeight: fontWeight,
-        letterSpacing: 0.15  );
+       );
     }
 
-  static TextStyle subtitle1(BuildContext context, {FontWeight? fontWeight, Color? color}){
+  static TextStyle subtitle1(BuildContext context, {Color? color}){
     return TextStyle(
       fontFamily: 'Montserrat',
-            fontSize: text(16, context),color: color,
-      fontWeight: fontWeight,   letterSpacing: 0.15  );
+      fontSize: 24.sp,
+      color: color,
+      fontWeight: FontWeight.w600, );
     }
 
   static TextStyle subtitle2(BuildContext context, {Color? color, FontWeight? fontWeight}){
     return TextStyle(
-      fontFamily: 'Montserrat',
+      fontFamily: 'Poppins',
       color: color,
-            fontSize: text(14, context),    fontWeight: fontWeight,    letterSpacing: 0.1  );
+      fontSize: 12.sp,
+      );
     }
 
   static TextStyle bodyText1(BuildContext context, {FontWeight? fontWeight, Color? color}){
