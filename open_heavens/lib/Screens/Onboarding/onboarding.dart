@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:open_heavens/Screens/Onboarding/onboarding_components.dart';
 import 'package:open_heavens/util/constants.dart';
+import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class Onboarding extends StatefulWidget {
   const Onboarding({Key? key}) : super(key: key);
@@ -13,60 +14,103 @@ class Onboarding extends StatefulWidget {
 class _OnboardingState extends State<Onboarding> {
 
   final PageController _controller = PageController();
+  bool isLastPage = false;
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Column(
-          children: [
-            Expanded(
-              
-              child: PageView(
-                controller: _controller,
-                children: const [
-                  Widget1(
-                    title: 'Welcome to the Open Heavens App',
-                    subtitle: 'We have quite a lot for you',
-                  ),
-                  
-                  Widget1(
-                    title: 'Daily Devotions',
-                    subtitle: 'Experience your devotional guide to a closer fellowship with God for teens and adults',
-                  ),
-                  
-                  Widget1(
-                    title: 'Bible in a year',
-                    subtitle: 'Take on the task of completing the Bible and see how much more you\'ll grow',
-                  )
-                ],
-              ),
-            ),
+        child: Padding(
+          padding: const EdgeInsets.all(24.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
 
-            FutureBuilder(
-              future: Future.value(false),
-              builder: (context, snapshot) {
-                if (snapshot.hasData){
-                  return const SizedBox(
-                    child: Text(''),
-                  );
-                } else {
-                return Visibility(
-                  visible: _controller.page != 2 ? false : true,
-                  child: InkWell(
-                    onTap: () => Navigator.popAndPushNamed(context, '/navigation'),
-                    child: Container(
-                      width: width(1, context),
-                      child: Text(_controller.page != 2 ? 'NEXT' : 'I\'M READY', style: button(context),),
-                      padding: const EdgeInsets.symmetric(vertical: 12),
-                      decoration: BoxDecoration(
-                        color: blue
+            //   SizedBox(
+            //   height: 136.h,
+            // ),
+
+              Expanded(
+                
+                child: PageView(
+                  controller: _controller,
+                  onPageChanged: (index) {
+                    setState(() {
+                      isLastPage = index == 2;
+                    });
+                  },
+                  children: const [
+                    Widget1(
+                      title: 'Welcome to the Open Heavens App',
+                      subtitle: 'We have quite a lot for you',
+                    ),
+                    
+                    Widget1(
+                      title: 'Daily Devotions',
+                      subtitle: 'Experience your devotional guide to a closer fellowship with God for teens and adults',
+                    ),
+                    
+                    Widget1(
+                      title: 'Bible in a year',
+                      subtitle: 'Take on the task of completing the Bible and see how much more you\'ll grow',
+                    )
+                  ],
+                ),
+              ),
+
+              SmoothPageIndicator(
+                controller: _controller,
+                count: 3,
+                onDotClicked: (index) => _controller.nextPage(
+                  duration: const Duration(milliseconds: 500),
+                  curve: Curves.easeInOut),
+                effect: WormEffect(
+                  dotWidth: 8,
+                  radius: 14,
+                  dotHeight: 8,
+                  activeDotColor: blue,
+                  dotColor: grey
+                  ),
+              ),
+
+              SizedBox(height: 24.h,),
+
+              
+              Visibility(
+                replacement: SizedBox(height: 42.h),
+                visible: isLastPage ? true : false,
+                child: InkWell(
+                      onTap: () {
+                        if (_controller.page != 2) {
+                          _controller.nextPage(duration: const Duration(milliseconds: 500), curve: Curves.easeInOut);
+                        } else {
+                          Navigator.popAndPushNamed(context, '/firstDoor');
+                        }},
+                      child: Container(
+                        alignment: Alignment.center,
+                        width: width(1, context),
+                        child: Text('I\'M READY', 
+                        style: button(context, color: white),),
+                        padding: const EdgeInsets.symmetric(vertical: 12),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(4),
+                          color: blue
+                        ),
                       ),
                     ),
-                  ),
-                );}
-              }
-            )
-          ],
+              ),
+
+                  SizedBox(
+              height: 54.h,
+            ),
+            ],
+          ),
         ),
       )
     );

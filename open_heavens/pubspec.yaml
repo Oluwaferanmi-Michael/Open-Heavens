@@ -39,6 +39,7 @@ dependencies:
   flutter_riverpod: ^1.0.3
 
   # UI functionality
+  smooth_page_indicator: ^1.0.0+2
   flutter_screenutil: ^5.1.1
 
   # Persist data
@@ -52,6 +53,7 @@ dependencies:
 
   # http requests
   http: ^0.13.4
+  
   
 
 dev_dependencies:

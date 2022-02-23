@@ -16,34 +16,33 @@ class Widget1 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      child: Padding(
-        padding: const EdgeInsets.all(24.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Row(
-              children: [
-                SizedBox(
-                  width: 76.w,
-                  child: Image.asset('assets/images/logoBlue.png')),
-              ]
-            ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        // mainAxisAlignment: MainAxisAlignment.end,
+        children: [
 
-            SizedBox(height: 16.h,),
+          
 
-            Flexible(
-              child: Column(
-                children: [
-                  Expanded(child: Text(title!, style: onboardingHeader(context))),
-                  SizedBox(
-                    height: 12.h,
-                  ),
-                ],
-              ),
-            ),
-            Expanded(child: Text(subtitle!, style: onboardingsubTitle(context),))
-          ],
-        ),
+          Container(
+            height: 379.h,
+            width: width(1, context),
+            color: grey,
+          ),
+
+          SizedBox(height: 82.h,),
+
+          Row(
+            children: [
+              SizedBox(
+                width: 76.w,
+                child: Image.asset('assets/images/logoBlue.png')),
+            ]
+          ),
+          SizedBox(height: 16.h,),
+
+          Expanded(child: Text(title!, style: onboardingHeader(context))),
+          Expanded(child: Text(subtitle!, style: onboardingsubTitle(context),))
+        ],
       ),
     );
   }
