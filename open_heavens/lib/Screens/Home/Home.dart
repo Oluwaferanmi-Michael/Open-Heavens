@@ -92,24 +92,35 @@ class _HomeState extends State<Home> {
               InkWell(
                 onTap: () => Navigator.pushNamed(context, '/devotional'),
                 child: Container(
+                  decoration: BoxDecoration(
+                      color: grey, borderRadius: BorderRadius.circular(8)),
                   height: 178.h,
-                  color: grey,
                   width: width(1, context),
-                  padding: EdgeInsets.all(12),
+                  padding: const EdgeInsets.all(12),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
+
+                      Expanded(
+                        child: Text('Teens Open Heavens',
+                            style: bodyText2(context)),
+                      ),
+
+                      
                       Text(
                         'THE BEGINNING OF MONTHS',
+                        style: primaryHeader(context,
+                              fontWeight: FontWeight.bold)
                       ),
                       SizedBox(
-                        height: 8.sp,
+                        height: 8.h,
                       ),
                       Text(
                         'Ad aliquip Lorem ea est eiusmod est deserunt. Veniam sunt commodo cupidatat in culpa do esse aliquip ex amet in proident. Dolor veniam nisi minim tempor consequat irure magna anim exercitation ea. Excepteur id cupidatat exercitation quis ut amet anim fugiat excepteur. Fugiat non exercitation tempor ea ea. Excepteur dolor cillum cupidatat cillum adipisicing consectetur officia qui. Duis laborum pariatur aliquip sunt aliqua ad culpa nostrud aliqua exercitation dolor qui.',
                         overflow: TextOverflow.ellipsis,
                         maxLines: 2,
+                        style: secondaryCaptions(context)
                       )
                     ],
                   ),
@@ -124,28 +135,42 @@ class _HomeState extends State<Home> {
                 onTap: () => Navigator.pushNamed(context, '/devotional'),
                 child: Container(
                   height: 178.h,
-                  color: grey,
+                  decoration: BoxDecoration(
+                      color: grey, borderRadius: BorderRadius.circular(8)),
                   width: width(1, context),
-                  padding: EdgeInsets.all(12),
+                  padding: const EdgeInsets.all(12),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       Text(
-                        'THE BEGINNING OF MONTHS',
+                        'Bible in a year',
+                        style: primaryHeader(context,
+                              fontWeight: FontWeight.bold)
                       ),
                       SizedBox(
                         height: 8.sp,
                       ),
                       Text(
-                        'Ad aliquip Lorem ea est eiusmod est deserunt. Veniam sunt commodo cupidatat in culpa do esse aliquip ex amet in proident. Dolor veniam nisi minim tempor consequat irure magna anim exercitation ea. Excepteur id cupidatat exercitation quis ut amet anim fugiat excepteur. Fugiat non exercitation tempor ea ea. Excepteur dolor cillum cupidatat cillum adipisicing consectetur officia qui. Duis laborum pariatur aliquip sunt aliqua ad culpa nostrud aliqua exercitation dolor qui.',
+                        'Daily guide to Bible Study',
                         overflow: TextOverflow.ellipsis,
                         maxLines: 2,
+                        style: secondaryCaptions(context)
                       )
                     ],
                   ),
                 ),
               ),
+
+              // SizedBox(
+              //   height: 8.h,
+              // ),
+
+              // Center(
+              //   child: SizedBox(
+              //     width: 48.w,
+              //     child: Image.asset('assets/images/logoBlue.png')),
+              // )
             ],
           ),
         ),

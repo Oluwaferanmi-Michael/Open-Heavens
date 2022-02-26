@@ -14,7 +14,6 @@ class CustomDrawer extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.only(left: 24, top: 72, bottom: 42),
         child: ListView(
-          padding: EdgeInsets.zero,
           children: [
             // ListTile(
             //   title: Column(
@@ -40,7 +39,7 @@ class CustomDrawer extends StatelessWidget {
               onTap: () => Navigator.pushNamed(context, '/topicsByMonth'),
               title: Text('Topics by Month', style: bodyText2(context),),),
 
-            SizedBox(height: 390.h,),
+            SizedBox(height: 450.h,),
 
             ListTile(
               title: Text(
