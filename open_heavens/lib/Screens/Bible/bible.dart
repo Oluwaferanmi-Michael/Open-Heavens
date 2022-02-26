@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:open_heavens/Models/bible_books_model.dart';
 import 'package:open_heavens/util/Widgets/drawer.dart';
 import 'package:open_heavens/util/constants.dart';
+
+import '../../API/bible_api.dart';
 
 class Bible extends StatefulWidget {
   const Bible({ Key? key }) : super(key: key);
@@ -21,7 +24,7 @@ DropdownMenuItem<String> bookList(String item) => DropdownMenuItem(
   child: Text(item),
   value: item);
     
-String? bibleBooks;
+// String? bibleBooks;
 
 
 // Chapters
@@ -54,6 +57,14 @@ final chapters = [
 
   String? bibleVerses;
 
+  late Future<Books> bibleBooks;
+
+  @override
+  void initState() {
+    bibleBooks = fetchBooks();
+    super.initState();
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -73,17 +84,22 @@ final chapters = [
               children: [
                 Container(
                   width: 141.w,
-                  child: DropdownButtonHideUnderline(
-                    child: DropdownButton<String>(
-                        icon: const Icon(Icons.keyboard_arrow_down_rounded),
-                        isDense: true,
-                        value: bibleBooks,
-                        items: books.map(bookList).toList(),
-                        onChanged: (bibleBooks) {
-                          setState(() {
-                            bibleBooks = bibleBooks;
-                          });
-                        }),
+                  child: FutureBuilder<Books>(
+                    future: bibleBooks,
+                    builder: (context, snapshot) {
+                      return DropdownButtonHideUnderline(
+                        child: DropdownButton<String>(
+                            icon: const Icon(Icons.keyboard_arrow_down_rounded),
+                            isDense: true,
+                            // value: bibleBooks,
+                            items: books.map(bookList).toList(),
+                            onChanged: (bibleBooks) {
+                              setState(() {
+                                bibleBooks = bibleBooks;
+                              });
+                            }),
+                      );
+                    }
                   ),
                   padding: const EdgeInsets.all(4),
                   decoration: BoxDecoration(

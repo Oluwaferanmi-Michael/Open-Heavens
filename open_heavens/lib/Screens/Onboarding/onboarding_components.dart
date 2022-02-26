@@ -7,43 +7,59 @@ class Widget1 extends StatelessWidget {
 
   final String? title;
   final String? subtitle;
+  final String? il;
+  final double? top; 
+  final double? bottom; 
 
   const Widget1({
-    Key? key, this.title, this.subtitle
-
+    Key? key, this.title, this.subtitle, this.il, this.top, this.bottom
     }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+      child: Stack(
+        // crossAxisAlignment: CrossAxisAlignment.start,
         // mainAxisAlignment: MainAxisAlignment.end,
         children: [
 
           
 
-          Container(
-            height: 379.h,
-            width: width(1, context),
-            color: grey,
-          ),
+          Positioned(
+            top: top,
+            child: SizedBox(
+              width: 440.w,
+              child: Image.asset(il!))),
 
-          SizedBox(height: 82.h,),
+          // SizedBox(height: 82.h,),
 
-          Row(
-            children: [
-              SizedBox(
-                width: 76.w,
-                child: Image.asset('assets/images/logoBlue.png')),
-            ]
-          ),
-          SizedBox(height: 16.h,),
-
-          Expanded(child: Text(title!, style: onboardingHeader(context))),
-          Expanded(child: Text(subtitle!, style: onboardingsubTitle(context),))
+          Positioned(
+            bottom: -32.h,
+            child: SizedBox(
+              height: 240.h,
+              width: width(1, context),
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 24.0),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    SizedBox(
+                      width: 76.w,
+                      child: Image.asset('assets/images/logoBlue.png')),
+                    
+                    SizedBox(height: 16.h,),
+              
+                    Expanded(child: Text(title!, style: onboardingHeader(context))),
+                    Expanded(child: Text(subtitle!, style: onboardingsubTitle(context),)),
+                  ],
+                ),
+              ),
+            ),
+          )
         ],
       ),
     );
   }
 }
+

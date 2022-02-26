@@ -36,6 +36,9 @@ double width(double n, BuildContext context )  {
 }
 
 
+// API links
+String books = 'https://api.scripture.api.bible/v1/bibles/de4e12af7f28f599-01/books';
+
 // Font Styles
 
 TextStyle? primaryHeader(BuildContext context,
