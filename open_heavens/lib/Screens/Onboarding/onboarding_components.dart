@@ -34,12 +34,12 @@ class Widget1 extends StatelessWidget {
           // SizedBox(height: 82.h,),
 
           Positioned(
-            bottom: -32.h,
+            bottom: 0.h,
             child: SizedBox(
               height: 240.h,
               width: width(1, context),
               child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 24.0),
+                padding: EdgeInsets.symmetric(horizontal: 24.w),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,

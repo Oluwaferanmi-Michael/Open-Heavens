@@ -6,7 +6,7 @@ import 'package:open_heavens/Screens/Drawer%20Screens/Topical%20Readings/topical
 import 'package:open_heavens/Screens/Drawer%20Screens/Topics%20by%20Date/topics_by_month.dart';
 import 'package:open_heavens/Screens/navigation.dart';
 
-import 'Screens/Devotional/devotionalScreen.dart';
+import 'Screens/Devotional/devotional_screen.dart';
 
 Map<String, WidgetBuilder> routes = {
   '/firstDoor' : (context) => const FirstDoor(),

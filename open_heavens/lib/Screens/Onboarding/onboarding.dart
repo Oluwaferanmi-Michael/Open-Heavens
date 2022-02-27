@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:hive/hive.dart';
+import 'package:open_heavens/Screens/Auth/name_auth.dart';
 import 'package:open_heavens/Screens/Onboarding/onboarding_components.dart';
 import 'package:open_heavens/util/constants.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
@@ -44,12 +46,23 @@ int number = 0;
               child: InkWell(
                     onTap: () {
                       if (_controller.page != 2) {
-                        _controller.nextPage(duration: const Duration(milliseconds: 500), curve: Curves.easeInOut);
+                        _controller.nextPage(duration: const Duration(milliseconds: 800), curve: Curves.easeIn);
                       } else {
-                        Navigator.popAndPushNamed(context, '/firstDoor');
+
+                        FutureBuilder(
+                          future: Hive.openBox('user'),
+                          builder: (BuildContext context, AsyncSnapshot snapshot) {
+                            if (snapshot.connectionState == ConnectionState.done) {
+                              return const FirstDoor();
+                            } else if (snapshot.hasError)  {
+                              return Text(snapshot.error.toString());
+                            } else{ return const Scaffold();}
+                          },
+                        );
+                        
                       }},
                     child: Container(
-                      margin: const EdgeInsets.symmetric(horizontal: 24),
+                      // margin: const EdgeInsets.symmetric(horizontal: 24),
                       alignment: Alignment.center,
                       width: width(1, context),
                       child: Text('I\'M READY', 
@@ -66,7 +79,7 @@ int number = 0;
       body: Container(
         padding: const EdgeInsets.only(bottom: 42),
         child: Column(
-          // mainAxisAlignment: MainAxisAlignment.end,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
 
           //   SizedBox(
@@ -74,7 +87,6 @@ int number = 0;
           // ),
 
             Expanded(
-              
               child: PageView(
                 controller: _controller,
                 onPageChanged: (index) {
@@ -112,19 +124,22 @@ int number = 0;
             height: 16.h,
           ),
 
-            SmoothPageIndicator(
-              controller: _controller,
-              count: 3,
-              onDotClicked: (index) => _controller.nextPage(
-                duration: const Duration(milliseconds: 500),
-                curve: Curves.easeInOut),
-              effect: WormEffect(
-                dotWidth: 8,
-                radius: 14,
-                dotHeight: 8,
-                activeDotColor: blue,
-                dotColor: grey
-                ),
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 24.w),
+              child: SmoothPageIndicator(
+                controller: _controller,
+                count: 3,
+                onDotClicked: (index) => _controller.nextPage(
+                  duration: const Duration(milliseconds: 500),
+                  curve: Curves.easeInOut),
+                effect: WormEffect(
+                  dotWidth: 8,
+                  radius: 14,
+                  dotHeight: 8,
+                  activeDotColor: blue,
+                  dotColor: grey
+                  ),
+              ),
             ),
 
             SizedBox(height: 24.h,),

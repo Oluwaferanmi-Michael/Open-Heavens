@@ -7,13 +7,13 @@ class Bible {
     if (json['data'] != null) {
       data = <Data>[];
       json['data'].forEach((v) {
-        data?.add(new Data.fromJson(v));
+        data?.add(Data.fromJson(v));
       });
     }
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
+    final Map<String, dynamic> data = <String, dynamic>{};
     if (this.data != null) {
       data['data'] = this.data?.map((v) => v.toJson()).toList();
     }
@@ -24,7 +24,7 @@ class Bible {
 class Data {
   String? id;
   String? dblId;
-  Null? relatedDbl;
+  Null relatedDbl;
   String? name;
   String? nameLocal;
   String? abbreviation;
@@ -64,12 +64,12 @@ class Data {
     description = json['description'];
     descriptionLocal = json['descriptionLocal'];
     language = json['language'] != null
-        ? new Language.fromJson(json['language'])
+        ? Language.fromJson(json['language'])
         : null;
     if (json['countries'] != null) {
       countries = <Countries>[];
       json['countries'].forEach((v) {
-        countries?.add(new Countries.fromJson(v));
+        countries?.add(Countries.fromJson(v));
       });
     }
     type = json['type'];
@@ -77,13 +77,13 @@ class Data {
     if (json['audioBibles'] != null) {
       audioBibles = <AudioBibles>[];
       json['audioBibles'].forEach((v) {
-        audioBibles?.add(new AudioBibles.fromJson(v));
+        audioBibles?.add(AudioBibles.fromJson(v));
       });
     }
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
+    final Map<String, dynamic> data = <String, dynamic>{};
     data['id'] = id;
     data['dblId'] = dblId;
     data['relatedDbl'] = relatedDbl;
@@ -127,7 +127,7 @@ class Language {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
+    final Map<String, dynamic> data = <String, dynamic>{};
     data['id'] = id;
     data['name'] = name;
     data['nameLocal'] = nameLocal;
@@ -151,7 +151,7 @@ class Countries {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
+    final Map<String, dynamic> data = <String, dynamic>{};
     data['id'] = id;
     data['name'] = name;
     data['nameLocal'] = nameLocal;
@@ -175,7 +175,7 @@ class AudioBibles {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
+    final Map<String, dynamic> data = <String, dynamic>{};
     data['id'] = id;
     data['name'] = name;
     data['nameLocal'] = nameLocal;

@@ -56,6 +56,8 @@ dependencies:
 
 #  Splash Screen
   flutter_native_splash: ^2.0.5
+  hive_flutter: ^1.1.0
+  path_provider: ^2.0.9
 
   
   
@@ -71,6 +73,8 @@ dev_dependencies:
   # rules and activating additional ones.
   flutter_lints: ^1.0.0
 
+  hive_generator: ^1.1.2
+  build_runner: ^2.1.7
   #  Splash Screen
   
 flutter_native_splash:
