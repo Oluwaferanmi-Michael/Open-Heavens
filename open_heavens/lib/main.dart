@@ -3,6 +3,7 @@ import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hive/hive.dart';
+import 'package:open_heavens/Models/user_model.dart';
 import 'package:open_heavens/Screens/Onboarding/onboarding.dart';
 import 'package:open_heavens/Screens/navigation.dart';
 import 'package:open_heavens/routes.dart';
@@ -13,9 +14,9 @@ void main() async {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
 
-  final appDirectory = p.getApplicationDocumentsDirectory();
-  Hive.init(appDirectory.toString());
-
+  final appDirectory = await p.getApplicationDocumentsDirectory();
+  Hive.init(appDirectory.path);
+  Hive.registerAdapter(UserModelAdapter());
   runApp(const ProviderScope(child: MyApp()));
 
   FlutterNativeSplash.remove();
@@ -29,15 +30,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return ScreenUtilInit(
       designSize: const Size(428, 926),
-      builder: () => MaterialApp(
-        builder: (context, widget) {
-          ScreenUtil.setContext(context);
-          return MediaQuery(
-            data: MediaQuery.of(context).copyWith(textScaleFactor: 1.0),
-            child: widget!);
-        },
-      // title: 'Flutter Demo',
-    debugShowCheckedModeBanner: false,
+      builder: () {
+        return MaterialApp(
+          debugShowCheckedModeBanner: false,
       theme: ThemeData(
         scaffoldBackgroundColor: white,
         appBarTheme: AppBarTheme(
@@ -60,7 +55,19 @@ class MyApp extends StatelessWidget {
       ),
       routes: routes,
       home: const Onboarding(),
-    ));
+        builder: (context, widget) {
+          ScreenUtil.setContext(context);
+          return MediaQuery(
+            data: MediaQuery.of(context).copyWith(textScaleFactor: 1.0),
+            child: widget!
+            );
+          
+          
+        },
+      
+        );
+      }
+    );
   }
 }
          

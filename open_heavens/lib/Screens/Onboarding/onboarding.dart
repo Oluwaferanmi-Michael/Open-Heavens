@@ -18,9 +18,11 @@ class _OnboardingState extends State<Onboarding> {
   final PageController _controller = PageController();
   bool isLastPage = false;
 
+  
   @override
   void dispose() {
     _controller.dispose();
+    // Hive.box('user').close();
     super.dispose();
   }
 
@@ -48,17 +50,7 @@ int number = 0;
                       if (_controller.page != 2) {
                         _controller.nextPage(duration: const Duration(milliseconds: 800), curve: Curves.easeIn);
                       } else {
-
-                        FutureBuilder(
-                          future: Hive.openBox('user'),
-                          builder: (BuildContext context, AsyncSnapshot snapshot) {
-                            if (snapshot.connectionState == ConnectionState.done) {
-                              return const FirstDoor();
-                            } else if (snapshot.hasError)  {
-                              return Text(snapshot.error.toString());
-                            } else{ return const Scaffold();}
-                          },
-                        );
+                        Navigator.popAndPushNamed(context, '/firstDoor');
                         
                       }},
                     child: Container(
@@ -145,11 +137,6 @@ int number = 0;
             SizedBox(height: 24.h,),
 
             
-           
-
-          //       SizedBox(
-          //   height: 54.h,
-          // ),
           ],
         ),
       )
