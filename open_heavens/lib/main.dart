@@ -5,7 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hive/hive.dart';
 import 'package:open_heavens/Models/user_model.dart';
 import 'package:open_heavens/Screens/Onboarding/onboarding.dart';
-import 'package:open_heavens/Screens/navigation.dart';
+// import 'package:open_heavens/Screens/navigation.dart';
 import 'package:open_heavens/routes.dart';
 import 'package:open_heavens/util/constants.dart';
 // import 'package:sqflite/sqflite.dart';
@@ -35,18 +35,20 @@ void main() async {
   // Runs App
   runApp(ProviderScope(child: MyApp(showHome: showHome, foreward: foreward)));
 
-  // Remves SPlash Screen After App Completes
+  // Removes Splash Screen After App Completes
   FlutterNativeSplash.remove();
 }
 
+
+// Apps first entry
 class MyApp extends StatelessWidget {
   // required to skip splash after 1st time
-  final bool showHome;
-  final bool foreward;
+  final bool? showHome;
+  final bool? foreward;
 
   const MyApp({
-    required this.foreward,
-    required this.showHome,
+    this.foreward,
+    this.showHome,
     Key? key}) : super(key: key);
 
   // This widget is the root of your application.
