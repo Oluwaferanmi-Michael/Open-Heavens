@@ -4,6 +4,8 @@ import 'package:hive/hive.dart';
 import 'package:open_heavens/Screens/Auth/name_auth.dart';
 import 'package:open_heavens/Screens/Onboarding/onboarding_components.dart';
 import 'package:open_heavens/util/constants.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:shared_preferences_web/shared_preferences_web.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class Onboarding extends StatefulWidget {
@@ -46,10 +48,13 @@ int number = 0;
               replacement: SizedBox(height: 42.h),
               visible: isLastPage ? true : false,
               child: InkWell(
-                    onTap: () {
+                    onTap: () async {
                       if (_controller.page != 2) {
                         _controller.nextPage(duration: const Duration(milliseconds: 800), curve: Curves.easeIn);
                       } else {
+
+                        final pref = await SharedPreferences.getInstance();
+                        pref.setBool('foreward', true);
                         Navigator.popAndPushNamed(context, '/firstDoor');
                         
                       }},

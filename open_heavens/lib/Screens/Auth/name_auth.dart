@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hive/hive.dart';
 import 'package:open_heavens/Models/user_model.dart';
 import 'package:open_heavens/util/constants.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class FirstDoor extends StatefulWidget {
   const FirstDoor({ Key? key }) : super(key: key);
@@ -13,19 +14,21 @@ class FirstDoor extends StatefulWidget {
 
 class _FirstDoorState extends State<FirstDoor> {
 
-  TextEditingController  nameController = TextEditingController();
-  final _messengerkey = GlobalKey<ScaffoldMessengerState>();
+  TextEditingController nameController = TextEditingController();
 
-  final snackBar = const SnackBar(
-    content: Text('Please fill the text field to continue or Skip to move on 🙂',),
-    );
+  // final newUser = UserModel(id: 0, name: nameController.text);
 
-    String name = '';
-    final formKey = GlobalKey<FormState>();
+  // String newUser() {
+  //   user = 
+  // }
+  
+
+    // String name = '';
+    // final formKey = GlobalKey<FormState>();
 
     void returnName(UserModel userName){
       final userBox = Hive.box('user');
-      userBox.putAt(0, userName);
+      userBox.put(0, userName);
     }
 
    
@@ -69,20 +72,17 @@ class _FirstDoorState extends State<FirstDoor> {
                       ),
                       borderRadius: BorderRadius.circular(8)
                     ),
-                    child: Form(
-                      key: formKey,
-                      child: TextFormField(
-                        autocorrect: false,
+                    child: TextFormField(
+                      autocorrect: false,
                     
-                        textAlign: TextAlign.center,
-                        controller: nameController,
-                        decoration: InputDecoration(
-                          border: InputBorder.none,
-                          hintText: 'What\'s your name ?',
-                          hintStyle: onboardingsubTitle(context),
-                          
-                        )
-                      ),
+                      textAlign: TextAlign.center,
+                      controller: nameController,
+                      decoration: InputDecoration(
+                        border: InputBorder.none,
+                        hintText: 'What\'s your name ?',
+                        hintStyle: onboardingsubTitle(context),
+                        
+                      )
                     ),
                   ),
                 
@@ -113,12 +113,15 @@ class _FirstDoorState extends State<FirstDoor> {
                 
                       Expanded(
                         child: InkWell(
-                          onTap: () {
+                          onTap: () async {
                             if (nameController.text.isEmpty) {
-                              _messengerkey.currentState?.showSnackBar(snackBar);
+                              // _messengerkey.currentState?.showSnackBar(snackBar);
                             } else {
-                              formKey.currentState?.save();
-                              final newUser = UserModel(name: name);
+                              
+                              final pref = await SharedPreferences.getInstance();
+                              pref.setBool('showHome', true);
+                              // Register User Name
+                              final newUser = UserModel(name: nameController.text);
                               returnName(newUser);
                               Navigator.popAndPushNamed(context, '/navigation');
                             }

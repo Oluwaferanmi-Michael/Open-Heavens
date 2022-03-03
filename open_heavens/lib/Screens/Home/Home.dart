@@ -16,6 +16,11 @@ class _HomeState extends State<Home> {
 
   final user = Hive.box('user').getAt(0) as UserModel;
 
+  @override
+  void dispose() {
+    Hive.box('user').close();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
