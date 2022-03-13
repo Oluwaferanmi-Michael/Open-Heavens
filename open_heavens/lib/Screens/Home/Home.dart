@@ -18,14 +18,14 @@ class _HomeState extends State<Home> {
 
   @override
   void dispose() {
-    Hive.box('user').close();
+    // Hive.box('user').close();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawerEnableOpenDragGesture: true,
+      drawerEnableOpenDragGesture: true, 
       primary: true,
       drawer: const CustomDrawer(),
       appBar: AppBar(
@@ -48,6 +48,11 @@ class _HomeState extends State<Home> {
                   children: [
                     Text('Good Day, ${user.name}',
                         style: headerCaptions(context)),
+
+                    // RichText(
+                      
+                    // )
+
                     Text('February 16th',
                     style: headerCaptions(context))
                   ],

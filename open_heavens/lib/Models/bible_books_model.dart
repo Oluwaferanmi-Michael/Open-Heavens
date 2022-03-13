@@ -28,7 +28,13 @@ class Data {
   String? name;
   String? nameLong;
 
-  Data({this.id, this.bibleId, this.abbreviation, this.name, this.nameLong});
+  Data({
+    this.id,
+    this.bibleId,
+    this.abbreviation,
+    required this.name,
+    this.nameLong
+    });
 
   Data.fromJson(Map<String, dynamic> json) {
     id = json['id'];

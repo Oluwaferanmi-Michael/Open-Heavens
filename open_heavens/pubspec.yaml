@@ -56,12 +56,15 @@ dependencies:
 
 #  Splash Screen
   flutter_native_splash: ^2.0.5
+
+  # Persisting Data 
   hive_flutter: ^1.1.0
   path_provider: ^2.0.9
   sqflite: ^2.0.2
   path: ^1.8.0
+
+  # monitoring splash screen state
   shared_preferences: ^2.0.13
-  shared_preferences_web: ^2.0.3
 
   
   

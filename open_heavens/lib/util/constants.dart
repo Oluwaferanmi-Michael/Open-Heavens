@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 // Colors
-
 // Neutral
 Color black = const Color(0xFF040013);
 Color white = const Color(0xFFF8F8F8);
@@ -15,7 +14,6 @@ Color green = const Color(0xFF00923F);
 Color gold = const Color(0xFFEFCD48);
 
 // Icons
-
 Icon back = const Icon(Icons.chevron_left_rounded);
 Icon menu = const Icon(Icons.menu);
 Icon dropDown = const Icon(Icons.keyboard_arrow_down_rounded);
@@ -38,6 +36,8 @@ double width(double n, BuildContext context )  {
 
 // API links
 String books = 'https://api.scripture.api.bible/v1/bibles/de4e12af7f28f599-01/books';
+
+Map<String, String> apiKey = {'api-key': '1ead4b2e54cbb13f5d30eb191564291b'};
 
 // Font Styles
 

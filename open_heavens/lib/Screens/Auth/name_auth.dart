@@ -16,15 +16,6 @@ class _FirstDoorState extends State<FirstDoor> {
 
   TextEditingController nameController = TextEditingController();
 
-  // final newUser = UserModel(id: 0, name: nameController.text);
-
-  // String newUser() {
-  //   user = 
-  // }
-  
-
-    // String name = '';
-    // final formKey = GlobalKey<FormState>();
 
     void returnName(UserModel userName){
       final userBox = Hive.box('user');
