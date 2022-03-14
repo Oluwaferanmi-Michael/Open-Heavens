@@ -12,12 +12,10 @@ var client = http.Client();
 
 
 //  Calling verse of the Bible
-static Future<Verse> fetchVerse({String? chooseBook, String? chooseChapter, String? chooseVerse}) async {
+static Future<Verse> fetchVerse(String chooseChapter) async {
 
   var url = Uri.parse(
-          'https://api.scripture.api.bible/v1/bibles/de4e12af7f28f599-01/verses/' + chooseBook! +
-            '.' + chooseChapter! +
-            '.' + chooseVerse!
+          'https://api.scripture.api.bible/v1/bibles/de4e12af7f28f599-01/chapters/' + chooseChapter + '/verses'
             
             );
   var client = http.Client();
@@ -31,14 +29,14 @@ static Future<Verse> fetchVerse({String? chooseBook, String? chooseChapter, Stri
   if (response.statusCode == 200) {
     return body;
   } else {
-    return Verse.fromJson(jsonDecode(response.statusCode.toString()));
+    throw Exception();
   }
 }
 
   // To fetch the Chapters of the Bible
-  static Future<Chapters> fetchChapters({String? chooseBook}) async {
+  static Future<Chapters> fetchChapters(String chooseBook) async {
 
-    var url = Uri.parse('https://api.scripture.api.bible/v1/bibles/de4e12af7f28f599-01/books/'+ chooseBook! + '.' + '/chapters');
+    var url = Uri.parse('https://api.scripture.api.bible/v1/bibles/de4e12af7f28f599-01/books/'+ chooseBook + '/chapters');
 
     var client = http.Client();
 
@@ -48,7 +46,7 @@ static Future<Verse> fetchVerse({String? chooseBook, String? chooseChapter, Stri
     if(response.statusCode == 200){
       return body;
     } else {
-      return Chapters.fromJson(jsonDecode(response.statusCode.toString()));
+      throw Exception();
     }
   }
 
