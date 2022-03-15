@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:open_heavens/Models/verse_model.dart';
 import 'package:open_heavens/Screens/Bible/Bible%20components/book_screen.dart';
 import 'package:open_heavens/Screens/Bible/Bible%20components/chapter_screen.dart';
@@ -11,65 +12,35 @@ import '../../util/constants.dart';
 // import 'Bible components/chapter_screen.dart';
 
 class SelectBook extends StatefulWidget {
-  const SelectBook({Key? key}) : super(key: key);
+
+  GlobalKey<SelectBookState>? selectBookKey = GlobalKey();
+
+  SelectBook({Key? key, this.selectBookKey}) : super(key: key);
 
   @override
-  State<SelectBook> createState() => _SelectBookState();
+  State<SelectBook> createState() => SelectBookState();
 }
 
-class _SelectBookState extends State<SelectBook> with SingleTickerProviderStateMixin {
-
-
-late final controller =
-      TabController(length: topTab.length, vsync: this);
-
-  // List<Widget> tab =  [
-  //    BookScreen(
-  //      onNext: () => controller.index = 1,
-  //    )
-  // ];
-
-  List<Tab> topTab =  const [
-    Tab(
-      child: Text('Book',),
-    ),
-    Tab(
-      child: Text('Chapter'),
-    ),
-    Tab(
-      child: Text('Verse'),
-    ),
-  ];
-
-
+class SelectBookState extends State<SelectBook>{
 
   @override
   Widget build(BuildContext context) {
-    return DefaultTabController(
-    length: 3,
-    child: Scaffold(
+    return Scaffold(
       appBar: AppBar(
         elevation: 0,
         backgroundColor: grey,
-        bottom: TabBar(
-          controller: controller,
-          tabs: topTab,
-        ),
+        leading: IconButton(icon: back, onPressed: () => Navigator.pop(context),),
+        actions: [
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 16),
+            child: Text('Book', style: secondaryHeader(context, color: black),),
+          )
+        ]
       ),
 
-      body: TabBarView(
-        controller: controller,
-        children: [
-          BookScreen(
-            onNext: () => controller.index = 2,
-          ),
-          ChapterScreen(
-            onNext: () => controller.index = 3
-          ),
-          const VerseScreen()
-      ],
-      ),
-    ));
+      body: const BookScreen(),
+
+      );
   }
 }
 

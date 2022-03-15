@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:open_heavens/Screens/Bible/select_book.dart';
 
 import '../../../Models/chapters_model.dart';
 import '../../../Models/verse_model.dart';
@@ -32,6 +33,23 @@ class _VerseScreenState extends State<VerseScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+          elevation: 0,
+          backgroundColor: grey,
+          leading: IconButton(
+            icon: back,
+            onPressed: () => Navigator.pop(context),
+          ),
+          actions: [
+            Padding(
+              padding:
+                  const EdgeInsets.symmetric(horizontal: 24.0, vertical: 16),
+              child: Text(
+                'Verse',
+                style: secondaryHeader(context, color: black),
+              ),
+            )
+          ]),
       body: FutureBuilder<Verse>(
           future: callVerse,
           builder: (context, snapshot) {
@@ -47,7 +65,7 @@ class _VerseScreenState extends State<VerseScreen> {
                               bodyText2(context, fontWeight: FontWeight.bold),
                         ),
                         onTap: () {
-                          // Navigator.push(context, MaterialPageRoute(builder: (context) => _verseScreen(snap[index].id!)));
+                          
                         },
                       ));
             } else if (snapshot.hasError) {

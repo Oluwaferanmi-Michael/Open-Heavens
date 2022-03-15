@@ -66,4 +66,23 @@ static Future<Verse> fetchVerse(String chooseChapter) async {
     }
   }
 
+  //  Calling verse of the Bible
+  static Future<Verse> showVerse(String chooseChapter) async {
+    var url = Uri.parse(
+        'https://api.scripture.api.bible/v1/bibles/de4e12af7f28f599-01/chapters/' +
+            chooseChapter +
+            '/verses');
+    var client = http.Client();
+
+    final response = await client.get(url, headers: apiKey);
+
+    var body = Verse.fromJson(jsonDecode(response.body));
+
+    if (response.statusCode == 200) {
+      return body;
+    } else {
+      throw Exception();
+    }
+  }
+
 }
