@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_html/flutter_html.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 // Colors
@@ -38,6 +39,7 @@ double width(double n, BuildContext context )  {
 String books = 'https://api.scripture.api.bible/v1/bibles/de4e12af7f28f599-01/books';
 
 Map<String, String> apiKey = {'api-key': '1ead4b2e54cbb13f5d30eb191564291b'};
+Map<String, String> hymnSecretKey = {'secret-key' : '\$2b\$10\$d/LHs33SLwqPUd0FZVXef.rs71aSkHcDTkhPZDsP24gowUYnm9y/u'};
 
 // Font Styles
 
@@ -62,7 +64,7 @@ TextStyle? buttons(BuildContext context,
         {Color? color, FontWeight? fontWeight}) => Font.headline6(context, color: color, fontWeight: fontWeight);
 
 
-// ```Ignore```/////////////////////////////////////////////////////////////////
+
 
 TextStyle? bodyText2(BuildContext context,
         {Color? color, FontWeight? fontWeight}) => Font.bodyText2(context, color: color, fontWeight: fontWeight);
@@ -199,3 +201,9 @@ class Font {
       letterSpacing: 1.5  );
     }
 }
+
+
+
+Map<String, Style> htmlStyle = {
+  '' : Style(),
+};

@@ -70,7 +70,7 @@ class ChapterScreenState extends State<ChapterScreen> {
           } else if (snapshot.hasError) {
             return Center(child: Text(snapshot.error.toString()));
           } else {
-            return Container();
+            return const Center(child: CircularProgressIndicator.adaptive());
           }
         }),
   );

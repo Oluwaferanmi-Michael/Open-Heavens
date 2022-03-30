@@ -65,6 +65,7 @@ dependencies:
 
   # monitoring splash screen state
   shared_preferences: ^2.0.13
+  flutter_html: ^2.2.1
 
   
   

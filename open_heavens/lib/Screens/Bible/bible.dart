@@ -1,18 +1,30 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_html/flutter_html.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:open_heavens/Models/passage_model.dart';
+import 'package:open_heavens/Services/api_methods.dart';
 
 import 'package:open_heavens/util/Widgets/drawer.dart';
 import 'package:open_heavens/util/constants.dart';
 
 
 class Bible extends StatefulWidget {
-  const Bible({ Key? key }) : super(key: key);
+  final String? verseBeginning;
+  final String? verseEnd;
+  const Bible({ Key? key, this.verseBeginning, this.verseEnd,}) : super(key: key);
 
   @override
   _BibleState createState() => _BibleState();
 }
 
 class _BibleState extends State<Bible> {
+  late Future<Passage> callPassage;
+
+  @override
+  void initState() {
+    callPassage = ApiCalls.showPassage(verseBeginning: widget.verseBeginning, verseEnd: widget.verseEnd);
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -63,7 +75,30 @@ class _BibleState extends State<Bible> {
       body: Container(
         padding: const EdgeInsets.only(left: 24, right: 24, top: 12),
         child: SingleChildScrollView(
-          child: Text('deserunt occaecat duis laboris. Velit anim voluptate excepteur qui.', style: bodyText(context))),
+          child: FutureBuilder<Passage>(
+            future: callPassage,
+            builder: (context, snapshot) {
+              var snap = snapshot.data?.data;
+
+              if (snapshot.hasError){
+                return Center(
+                  child: Text(
+                    'Select a Bible Chapter'
+                  ),
+                );
+              } else {
+              return Column(
+                children: [
+                  Html(
+                    data: snap?.content,
+                    // style:,
+                  ),
+                ],
+              );
+            }
+            }
+          )
+          ),
       ),
     );
   }

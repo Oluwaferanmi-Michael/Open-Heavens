@@ -1,20 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:open_heavens/Screens/Bible/select_book.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../Models/chapters_model.dart';
 import '../../../Models/verse_model.dart';
 import '../../../Services/api_methods.dart';
 import '../../../util/constants.dart';
+import '../../navigation.dart';
+import '../bible.dart';
 
 class VerseScreen extends StatefulWidget {
   // final String? book;
   final String? chapter;
   final VoidCallback? onNext;
+  final GlobalKey<NavigationState>? navKey;
   const VerseScreen({
     Key? key,
     this.chapter,
     // this.book,
-    this.onNext,
+    this.onNext, this.navKey,
   }) : super(key: key);
 
   @override
@@ -64,8 +68,11 @@ class _VerseScreenState extends State<VerseScreen> {
                           style:
                               bodyText2(context, fontWeight: FontWeight.bold),
                         ),
-                        onTap: () {
-                          
+                        onTap: () async {
+                          var prefs = await SharedPreferences.getInstance();
+                          prefs.setString('verse', snap[index].id!);
+                          Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => Bible(verseBeginning: prefs.getString('verse')),));
+                          // widget.navKey?.currentState?.pages;
                         },
                       ));
             } else if (snapshot.hasError) {

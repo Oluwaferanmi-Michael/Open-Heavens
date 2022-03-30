@@ -5,13 +5,14 @@ import 'package:open_heavens/Screens/Hymns/hymns.dart';
 import 'package:open_heavens/util/constants.dart';
 
 class Navigation extends StatefulWidget {
-  const Navigation({ Key? key }) : super(key: key);
+  final GlobalKey<NavigationState>? navKey;
+  const Navigation({ Key? key, this.navKey }) : super(key: key);
 
   @override
-  _NavigationState createState() => _NavigationState();
+  NavigationState createState() => NavigationState();
 }
 
-class _NavigationState extends State<Navigation> {
+class NavigationState extends State<Navigation> {
   
   var _pageIndex = 0;
 

@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:open_heavens/Screens/Hymns/hymn_page_components.dart';
+import 'package:open_heavens/Services/api_methods.dart';
+import 'package:open_heavens/Services/providers.dart';
 import 'package:open_heavens/util/Widgets/drawer.dart';
 import 'package:open_heavens/util/constants.dart';
 
@@ -16,6 +19,14 @@ class Hymns extends StatefulWidget {
 }
 
 class _HymnsState extends State<Hymns> {
+  // late Future<HymnModel> fetchHymns;
+
+  // @override
+  // void initState() {
+  //   // fetchHymns = ApiCalls.fetchHymns();
+  //   super.initState();
+  // }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,7 +49,6 @@ class _HymnsState extends State<Hymns> {
 
               Container(
                 padding: const EdgeInsets.symmetric(horizontal: 12),
-
                 decoration: BoxDecoration(
                   border: Border.all(color: blue, width: 1),
                   borderRadius: BorderRadius.circular(8)
@@ -58,22 +68,24 @@ class _HymnsState extends State<Hymns> {
       
               SizedBox(
                 height: height(1, context),
-                // child: FutureBuilder<List<HymnModel>>(
-                //   future: HymnApi.getLocally(context),
-                //   builder: (context, snapshot) {
-
-                //     switch (snapshot.connectionState) {
-                //       case ConnectionState.waiting:
-                //         return loading(context);
-                //       default:
-                //         if (snapshot.hasError) {
-                //           return errorMessage(context);
-                //         } else {
-                //           return hymnList(context);
-                //         }
-                //     }
-                //   }
-                // ),
+                child: Consumer(
+                  builder: (context, ref, child) {
+                    return ref.watch(
+                      hymnProvider
+                    ).when(
+                      data: (HymnModel data) {
+                        return ListView.builder(
+                          itemCount: data.hymns!.length,
+                          itemBuilder: (context, index) => ListTile(
+                            title: Text(data.hymns![index].title!)
+                          ));
+                      },
+                      error: (err, stackTrace) {
+                        return Center(child: Text(err.toString()));
+                      },
+                      loading: () => const Center(child: CircularProgressIndicator.adaptive(),)
+                      );
+                  })
               )
             ],
           ),

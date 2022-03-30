@@ -12,10 +12,7 @@ import '../../util/constants.dart';
 // import 'Bible components/chapter_screen.dart';
 
 class SelectBook extends StatefulWidget {
-
-  GlobalKey<SelectBookState>? selectBookKey = GlobalKey();
-
-  SelectBook({Key? key, this.selectBookKey}) : super(key: key);
+  const SelectBook({Key? key,}) : super(key: key);
 
   @override
   State<SelectBook> createState() => SelectBookState();
